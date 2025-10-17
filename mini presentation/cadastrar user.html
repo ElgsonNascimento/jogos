@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Todos Jogos</p>
+    <p id="resultados"> carregando</p>
+
+
+
+    <form action="api.php" method="POST">
+        <label>Nome:</label> <input type="text" name="nome"><br>
+        <label>Preço:</label> <input type="text" name="preco"><br>
+        <label>Lançamento:</label><input type="text" name="lancamento"><br>
+        <label>Genero:</label> <input type="text" name="genero"><br>
+        <label>Descrição:</label><input type="text" name="descricao"><br>
+        <label>Developer:</label><input type="text" name="developer"><br>
+        <label>Publisher:</label><input type="text" name="publisher"><br>
+        <input type="submit">
+    </form>
+
+
+</body>
+    <script>
+        function pegaJogos() {
+            fetch("/api.php")
+            .then(r => r.text()
+            .then(d => {
+            let v = document.querySelector("#resultados")
+            v.innerHTML = d;
+            }))
+        }
+        pegaJogos();    
+    </script>
+</html>

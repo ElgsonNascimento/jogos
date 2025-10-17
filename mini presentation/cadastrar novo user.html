@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Todos Jogos</p>
+    <p id="resultados"> carregando</p>
+
+
+
+    <form action="api.php" method="POST">
+        <label>Username:</label> <input type="text" name="username"><br>
+        <label>Nickname:</label> <input type="text" name="nickname"><br>
+        <label>Date of birth:</label><input type="text" name="age"><br>
+        <label>Email:</label> <input type="text" name="email"><br>
+        <label>Passwd:</label><input type="text" name="user_pass"><br>
+        <input type="submit">
+    </form>
+
+
+</body>
+    <script>
+        function pegaUser() {
+            fetch("/api.php")
+            .then(r => r.text()
+            .then(d => {
+            let v = document.querySelector("#resultados")
+            v.innerHTML = d;
+            }))
+        }
+        pegaUser();    
+    </script>
+</html>
