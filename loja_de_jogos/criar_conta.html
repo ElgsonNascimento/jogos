@@ -17,22 +17,22 @@
         <main>
             
             <h1>criar conta</h1>
-            <form action="">
+            <form action="./criar_conta.php" method="POST">
                 <label for="tipo_conta">Tipo de conta:</label><br>
                 <input name="tipo_conta" type="checkbox"> conta usuário<br>
                 <input name="tipo_conta" type="checkbox"> conta publicador<br><br>
                 <label for="nome_usuario">Nome de usuário:</label><br>
-                <input nome="nome_usuario" type="text" placeholder="cadastrar nome de usuário"><br>
+                <input name="username" type="text" placeholder="cadastrar nome de usuário"><br>
                 <label for="nome_completo">Nome completo:</label><br>
-                <input nome="nome_completo" type="text" placeholder="cadastrar nome completo"><br>
+                <input name="nickname" type="text" placeholder="cadastrar nome completo"><br>
                 <label for="email">email:</label><br>
-                <input nome="email" type="text" placeholder="cadastrar email"><br>
+                <input name="email" type="text" placeholder="cadastrar email"><br>
                 <label for="telefone">Telefone:</label><br>
-                <input nome="telefone" type="text" placeholder="cadastrar telefone"><br>
+                <input name="age" type="text" placeholder="cadastrar telefone"><br>
                 <label for="senha1">Senha:</label><br>
-                <input nome="senha1" type="text" placeholder="cadastrar senha"><br>
+                <input name="user_pass" type="text" placeholder="cadastrar senha"><br>
                 <label for="senha2">Repetir senha:</label><br>
-                <input name="senha2" type="text"  placeholder="Repita sua senha"><br>
+                <input name="user_pass2" type="text"  placeholder="Repita sua senha"><br>
                 <button type="submit">Enviar</button>
                 <nav>
                     <a href="acessar_conta.html">Já possuo conta</a>
