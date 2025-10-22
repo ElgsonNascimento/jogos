@@ -13,16 +13,16 @@
 
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $username = $_POST["username"];
-        $nickname = $_POST["nickname"];
+        $username = trim($_POST["username"]);
+        $nickname = trim($_POST["nickname"]);
         $age = $_POST["age"];
-        $email = $_POST["email"];
-        $passwd = $_POST["user_pass"];
-        echo "$passwd";
+        $email = trim($_POST["email"]);
+        $passwd = trim($_POST["user_pass"]);
+        $hashed_passw = password_hash($passwd, PASSWORD_DEFAULT);
 
 
-        $stmt = $conn->prepare("INSERT INTO fuser(user_name, user_nickname, age, email, user_pass) VALUES (?,?,?,?,?)");
-        $stmt->bind_param("sssss",$username,$nickname,$age,$email,$passwd);
+        $stmt = $conn->prepare("INSERT INTO fuser(user_name, user_nickname, user_age, user_email, user_password) VALUES (?,?,?,?,?)");
+        $stmt->bind_param("sssss",$username,$nickname,$age,$email,$hashed_passw);
         if($stmt -> execute()){
             echo "Funcionou";
         }
