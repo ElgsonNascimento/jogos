@@ -18,15 +18,27 @@
         $age = $_POST["age"];
         $email = trim($_POST["email"]);
         $passwd = trim($_POST["user_pass"]);
-        $hashed_passw = password_hash($passwd, PASSWORD_DEFAULT);
+        $hash_passwd = password_hash($passwd, PASSWORD_DEFAULT);
 
+        $check = $conn->prepare("SELECT id FROM fuser WHERE user_name = ?");
+        $check->bind_param("s", $username);
+        $check->execute();
+        $result = $check->get_result();
 
+        if ($result->num_rows > 0) {
+            echo "Username já escolhido. Escolha outro username.";
+        } else {
         $stmt = $conn->prepare("INSERT INTO fuser(user_name, user_nickname, user_age, user_email, user_password) VALUES (?,?,?,?,?)");
-        $stmt->bind_param("sssss",$username,$nickname,$age,$email,$hashed_passw);
-        if($stmt -> execute()){
+        $stmt->bind_param("sssss",$username,$nickname,$age,$email,$hash_passwd);
+        if($stmt -> execute()) {
             echo "Funcionou";
+        } else {
+            echo "Não foi possível criar a conta";
         }
+        
 
 
     }
+}
 ?>
+
