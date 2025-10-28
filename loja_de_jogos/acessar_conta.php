@@ -21,3 +21,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {  // caso o usuário clique em "subm
     } else {
         echo "Usuário não encontrado";
     }
+}
