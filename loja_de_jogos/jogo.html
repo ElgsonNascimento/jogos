@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title id="nome_jogo"></title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
+            <h1>Nome da loja de jogos</h1></a>
+            <nav>
+                <a href="acessar_conta.html">acessar conta</a>
+                <a href="criar_conta.html">criar conta</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Criar adicao dinamica dos dados declarados em id por metodo Get -->
+            <h1 id="nome_jogo">nome do jogo</h1>
+            <section id="apresentacao_jogo">
+                <div class="esquerda">
+                    <img id="img_jogo" alt="imagem do jogo">
+                </div>
+                <div class="direita">
+                    <p>Descrição:</p>
+                    <p id="descricao_jogo"></p>
+                    <p>Data do lançamento:</p>
+                    <p id="lancamento_jogo"></p>
+                    <p>Desenvolvedor do jogo:</p>
+                    <p id="desenvolvedor_jogo"></p>
+                    <p> Publicadora:</p>
+                    <p id="publicador_jogo"></p>
+                    <p>Genero do jogo:</p>
+                    <p id="genero_joogo"></p>
+                    <button id="add_jogo_carrinho"> Add ao carrinho </button>
+                    <button id="comprar_jogo"> Comprar </button>
+                </div>
+            </section>
+            <section>
+                <h2>Comentários</h2>
+                <!-- criar estruturas dinamicamente caso haja comentarios sobre o jogo -->
+                <div>
+                    <p id="nome_usuario"></p>
+                    <p id="conteudo_comentario"></p>
+                    <p id="likes">👍</p>
+                    <p id="deslikes">👎</p>
+                </div>
+
+                <!-- estrutura fixa comentar -->
+                <div>
+                    <p>Ajude interessados a saber mais sobre o jogo contando a sua experiência:</p>
+                    <form action="" method="POST">
+                        <label for="comentario">Comentar sobre o jogo:</label>
+                        <textarea id="comentario"></textarea>
+                        <button type="submit"> Enviar Comentario </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            Caso tenha qualquer problema, se dirigir a nossa equipe de suporte:
+            +55 41 99999-9999.
+            por favor nos avalie 
+        </footer>
+
+        <script>
+
+        </script>
+    </body>
+</html>

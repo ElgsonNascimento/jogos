@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Carrinho</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
+            <h1>Nome da loja de jogos</h1></a>
+            <nav>
+                <a href="acessar_conta.html">acessar conta</a>
+                <a href="criar_conta.html">criar conta</a>
+            </nav>
+        </header>
+        
+        <main>
+            <!-- Adicao dinamica dos jogos jistados no carrinho por metodo Get -->
+            <h1>Meu carrinho:</h1>
+            <section id="apresentacao_jogo">
+            <!-- Se houver jogo na lista, adicionar estruturas em sequencia: -->
+             <div id="jogo_no_carrinho">
+                <img id="imagen_jogo" alt="imagem do jogo">
+                <h2 id="nome_jogo_carrinho"></h2>
+                <p>valor do jogo:</p>
+                <p id="valor_jogo"></p>
+                <button> ampliar </button>
+                <button> comprar </button>
+             </div>
+            <!-- Se nao, apresetar mensagem: -->
+            <p>Não há jogos no seu carrinho, <a href="index.html">adcionar mais</a></p>
+            </section>
+        </main>
+
+        <footer>
+            Caso tenha qualquer problema, se dirigir a nossa equipe de suporte:
+            +55 41 99999-9999.
+            por favor nos avalie 
+        </footer>
+
+        <script>
+
+        </script>
+    </body>
+</html>
