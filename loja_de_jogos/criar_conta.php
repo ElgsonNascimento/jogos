@@ -19,7 +19,7 @@
         $email = trim($_POST["email"]);
         $passwd = trim($_POST["user_pass"]);
         $hash_passwd = password_hash($passwd, PASSWORD_DEFAULT); // a biblioteca gera um Hash Digest com o 
-                                                                // algoritmo "bcrypt", incluindo SALT.
+                                                                // algoritmo "bcrypt", incluindo SALT
         $check = $conn->prepare("SELECT id FROM fuser WHERE user_name = ?");
         $check->bind_param("s", $username);
         $check->execute();
