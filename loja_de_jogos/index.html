@@ -64,13 +64,14 @@
                 boas_vindas.innerHTML = `
                 <h1>Bem-vindo(a), ${username}</h1>
                 `;
-            }
-            document.getElementById("logoutBtn").addEventListener("click", function (e) {
+
+                document.getElementById("logoutBtn").addEventListener("click", function (e) {
                 e.preventDefault();
                 sessionStorage.removeItem("username");
                 sessionStorage.removeItem("loggedIn");
                 window.location.reload();
-            });
+            }
+            
         </script>
 
     </body>
