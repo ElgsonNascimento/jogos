@@ -1,24 +1,22 @@
 <?php
-$conn = new mysqli("localhost:3307", "root", "", "cloud"); // Conecta ao banco de dados "cloud" 
-                                                         // no servidor MySQL local, porta 3307.
+header("Content-Type: application/json");
+$conn = new mysqli("localhost:3306", "root", "", "cloud");
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {  // caso o usuário clique em "submit",
-    $username = trim($_POST["username"]);           // o formulário enviará os campos "username e 
-    $password = trim($_POST["user_pass"]);          // "user_pass" no formato POST.
+$username = trim($_POST["username"] ?? "");
+$password = trim($_POST["user_pass"] ?? "");
 
+$stmt = $conn->prepare("SELECT user_password FROM fuser WHERE user_name = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    $stmt = $conn->prepare("SELECT user_password FROM fuser WHERE user_name = ?"); // buscar o hash da senha do usuário informado
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($row = $result->fetch_assoc()) {  // verifica se há um registro com o user_name na tabela
-        if (password_verify($password, $row["user_password"])) {  // compara o hash de user_pass
-            echo "Acesso concedido";  // hash da senha igual
-        } else {
-            echo "Login incorreto";  // hash da senha distinto
-        }
+if ($row = $result->fetch_assoc()) {
+    if (password_verify($password, $row["user_password"])) {
+        echo json_encode(["success" => true, "message" => "Acesso concedido"]);
     } else {
-        echo "Usuário não encontrado";
+        echo json_encode(["success" => false, "message" => "Senha incorreta"]);
     }
+} else {
+    echo json_encode(["success" => false, "message" => "Usuário não encontrado"]);
 }
+

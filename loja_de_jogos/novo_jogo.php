@@ -1,6 +1,6 @@
 <?php
    
-    $conexao = mysqli_connect("localhost:3307","root", "","cloud");
+    $conexao = mysqli_connect("localhost:3306","root", "","cloud");
      /*if($_SERVER["REQUEST_METHOD"] == "GET"){
         $r = mysqli_query($conexao, "SELECT * from game");
         while ($row = mysqli_fetch_assoc(result:$r)){

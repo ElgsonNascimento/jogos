@@ -18,15 +18,16 @@
         <main>
 
             <h1>acessar conta</h1>
-            <form action="./acessar_conta.php" method="POST">        
+            <form id="loginForm">        
                 <label for="nome">Nome de usuário:</label><br>
                 <input name="username" type="text" placeholder="Digite seu nome de usuário"><br>
                 <label for="senha">Senha:</label><br>
                 <input name="user_pass" type="text"  placeholder="Digite sua senha"><br>
-                <button class="submit" submit">Enviar</button>
+                <button class="submit" submit>Enviar</button>
                 <p>esqueci minha senha</p>
                 <a href="criar_conta.html">não possuo conta</a>
             </form>
+            <p id="msg" style="color:red;"></p>
 
 
         </main>
@@ -35,5 +36,34 @@
             +55 41 99999-9999.
             por favor nos avalie 
         </footer>
+
+        <script>
+            document.getElementById("loginForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+
+                fetch("acessar_conta.php", {
+                method: "POST",
+                body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                const msg = document.getElementById("msg");
+                msg.textContent = data.message;
+                msg.style.color = data.success ? "green" : "red";
+
+                if (data.success) {
+                    // persisntência de login através de SessionStorage
+                    sessionStorage.setItem("username", formData.get("username"));
+                    sessionStorage.setItem("loggedIn", "true");
+                    // redireciona para a página principal caso login bem-sucedido
+                    window.location.href = "index.html";
+                    }
+                })
+                .catch(error => console.error("Erro:", error));
+            });
+        </script>
+
     </body>
 </html>
