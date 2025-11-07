@@ -1,4 +1,4 @@
-Ao invés de usar requisições de html puro (ex: <form method="POST" action="index.php">) , utilizei Fetch API do Javascript, que pode manipular a página dinamicamente e sem necessidade de Reload.
+Ao invés de usar requisições de html puro (ex: form method="POST" action="index.php") , utilizei Fetch API do Javascript, que pode manipular a página dinamicamente e sem necessidade de Reload.
 
 Páginas com Fetch API + SessionStorage implementadas: acessar_conta, criar_conta, e index (página principal).
 
