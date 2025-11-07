@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-$conn = new mysqli("localhost:3306", "root", "", "cloud");
+$conn = new mysqli("localhost:3307", "root", "", "cloud");
 
 $username = trim($_POST["username"] ?? "");
 $password = trim($_POST["user_pass"] ?? "");
