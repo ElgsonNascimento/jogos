@@ -56,8 +56,13 @@
             if (loggedIn === "true") {
                 const nav = document.querySelector("nav");
                 nav.innerHTML = `
-                <a href="#">Bem-vindo, ${username}</a>
+                <a href="#">Perfil de ${username}</a>
                 <a href="#" id="logoutBtn">Sair</a>
+                `;
+
+                const boas_vindas = document.getElementById("principal");
+                boas_vindas.innerHTML = `
+                <h1>Bem-vindo(a), ${username}</h1>
                 `;
             }
             document.getElementById("logoutBtn").addEventListener("click", function (e) {
