@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-$conn = mysqli_connect("localhost:3306","root", "","cloud");
+$conn = mysqli_connect("localhost:3307","root", "","cloud");
 
 $response = ["success" => false, "message" => ""];
 
