@@ -50,30 +50,47 @@
         </footer>
 
         <script>
+
+            // buscando na sessão as variáveis username e loggedIn(bool)
             const username = sessionStorage.getItem("username");
             const loggedIn = sessionStorage.getItem("loggedIn");
 
+            // Caso o usuario esteja logado, o header é modificado
+            // com suas credenciais de sessão (header inteligente).
             if (loggedIn === "true") {
                 const nav = document.querySelector("nav");
-                nav.innerHTML = `
-                <a href="#">Perfil de ${username}</a>
-                <a href="#" id="logoutBtn">Sair</a>
-                `;
+                nav.innerHTML = ""; // limpar links antigos com segurança
 
+                // criar link "Perfil de... {usuario}"
+                const perfil = document.createElement("a");
+                perfil.href = "#";
+                perfil.textContent = `Perfil de ${username}`; // textContent ao invés 
+                                                              // innerHTML pra prevenir xss.
+
+                // criar link "Sair"
+                const sair = document.createElement("a");
+                sair.href = "#";
+                sair.id = "logoutBtn";
+                sair.textContent = "Sair";
+
+                // adicionar os dois links na "nav" anterior
+                nav.appendChild(perfil);
+                nav.appendChild(sair);
+
+                // atualizar mensagem de Boas vindas
                 const boas_vindas = document.getElementById("principal");
-                boas_vindas.innerHTML = `
-                <h1>Bem-vindo(a), ${username}</h1>
-                `;
+                boas_vindas.textContent = `Bem-vindo(a), ${username}`;
 
-                document.getElementById("logoutBtn").addEventListener("click", function (e) {
-                e.preventDefault();
-                sessionStorage.removeItem("username");
-                sessionStorage.removeItem("loggedIn");
-                window.location.reload();
+                // botão de deslogar
+                sair.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    sessionStorage.removeItem("username"); // Remove os dados
+                    sessionStorage.removeItem("loggedIn"); // da sessão.
+                    window.location.reload(); // Recarrega a página.
                 });
             }
-            
         </script>
+
 
     </body>
 </html>
