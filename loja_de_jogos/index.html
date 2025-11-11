@@ -18,7 +18,7 @@
         <main>
             <input type="text" placeholder="pesquisar..."> 
             <button>Filtros</button>
-            <h1>Página principal</h1>
+            <h1 id="principal">Página principal</h1>
             <h2>Principais ofertas:</h2>
             <div class="oferta">
                 <img src="imgs/jogo1.png" alt="imagem do jogo 1">
@@ -48,5 +48,32 @@
             +55 41 99999-9999.
             por favor nos avalie 
         </footer>
+
+        <script>
+            const username = sessionStorage.getItem("username");
+            const loggedIn = sessionStorage.getItem("loggedIn");
+
+            if (loggedIn === "true") {
+                const nav = document.querySelector("nav");
+                nav.innerHTML = `
+                <a href="#">Perfil de ${username}</a>
+                <a href="#" id="logoutBtn">Sair</a>
+                `;
+
+                const boas_vindas = document.getElementById("principal");
+                boas_vindas.innerHTML = `
+                <h1>Bem-vindo(a), ${username}</h1>
+                `;
+
+                document.getElementById("logoutBtn").addEventListener("click", function (e) {
+                e.preventDefault();
+                sessionStorage.removeItem("username");
+                sessionStorage.removeItem("loggedIn");
+                window.location.reload();
+                });
+            }
+            
+        </script>
+
     </body>
 </html>
