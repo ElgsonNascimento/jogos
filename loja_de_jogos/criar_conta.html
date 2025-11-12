@@ -19,8 +19,8 @@
             <h1>criar conta</h1>
             <form id="registerForm">
                 <label for="tipo_conta">Tipo de conta:</label><br>
-                <input name="tipo_conta" type="checkbox"> conta usuário<br>
-                <input name="tipo_conta" type="checkbox"> conta publicador<br><br>
+                <input type="radio" name="tipo_conta" value="usuario" required> Conta usuário<br>
+                <input type="radio" name="tipo_conta" value="publicador"> Conta publicador<br><br>
                 <label for="nome_usuario">Nome de usuário:</label><br>
                 <input name="username" type="text" placeholder="cadastrar nome de usuário" required><br>
                 <label for="nome_completo">Nome completo:</label><br>
@@ -76,3 +76,4 @@
         </script>
     </body>
 </html>
+
