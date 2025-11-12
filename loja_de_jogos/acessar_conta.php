@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-$conn = new mysqli("localhost:3306", "root", "", "cloud");
+$conn = new mysqli("localhost:3307", "root", "", "cloud");
 
 if ($conn->connect_error) {
     echo json_encode(["success" => false, "message" => "Erro de conexão ao banco de dados."]);
