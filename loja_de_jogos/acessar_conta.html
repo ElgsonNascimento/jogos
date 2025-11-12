@@ -18,11 +18,14 @@
         <main>
 
             <h1>acessar conta</h1>
-            <form id="loginForm">        
+            <form id="loginForm">
+                <label for="tipo_conta">Tipo de conta:</label><br>
+                <input type="radio" name="account_type" value="user" checked>Usuário<br>
+                <input type="radio" name="account_type" value="publisher">Publicador<br>        
                 <label for="nome">Nome de usuário:</label><br>
                 <input name="username" type="text" placeholder="Digite seu nome de usuário"><br>
                 <label for="senha">Senha:</label><br>
-                <input name="user_pass" type="text"  placeholder="Digite sua senha"><br>
+                <input name="user_pass" type="password"  placeholder="Digite sua senha"><br>
                 <button class="submit" submit>Enviar</button>
                 <p>esqueci minha senha</p>
                 <a href="criar_conta.html">não possuo conta</a>
@@ -44,21 +47,20 @@
                 const formData = new FormData(this);
 
                 fetch("acessar_conta.php", {
-                method: "POST",
-                body: formData
+                    method: "POST",
+                    body: formData
                 })
                 .then(response => response.json())
                 .then(data => {
-                const msg = document.getElementById("msg");
-                msg.textContent = data.message;
-                msg.style.color = data.success ? "green" : "red";
+                    const msg = document.getElementById("msg");
+                    msg.textContent = data.message;
+                    msg.style.color = data.success ? "green" : "red";
 
-                if (data.success) {
-                    // persisntência de login através de SessionStorage
-                    sessionStorage.setItem("username", formData.get("username"));
-                    sessionStorage.setItem("loggedIn", "true");
-                    // redireciona para a página principal caso login bem-sucedido
-                    window.location.href = "index.html";
+                    if (data.success) {
+                        sessionStorage.setItem("username", formData.get("username"));
+                        sessionStorage.setItem("accountType", formData.get("account_type"));
+                        sessionStorage.setItem("loggedIn", "true");
+                        window.location.href = "index.html";
                     }
                 })
                 .catch(error => console.error("Erro:", error));
