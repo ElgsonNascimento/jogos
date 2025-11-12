@@ -141,6 +141,35 @@ input[type=text] {
     transition: background .3s
 }
 
+input[type="password"] {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px 20px;
+    background: #5a6450;
+    border: none;
+    border-radius: 3px;
+    color: #eff6ee;
+    font-size: 14px;
+    margin-bottom: 30px;
+    outline: 0;
+    transition: background .3s
+}
+
+input[type="DATE"] {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px 20px;
+    background: #5a6450;
+    border: none;
+    border-radius: 3px;
+    color: #eff6ee;
+    font-size: 14px;
+    margin-bottom: 30px;
+    outline: 0;
+    transition: background .3s
+}
+
+
 input[type=text]::placeholder {
     color: #a8b09e
 }
