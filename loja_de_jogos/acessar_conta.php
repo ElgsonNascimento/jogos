@@ -12,8 +12,8 @@ $password = trim($_POST["user_pass"] ?? "");
 $accountType = $_POST["account_type"] ?? "user"; // default to user
 
 // Escolhe a tabela dependendo do tipo de conta
-if ($accountType === "Publisher") {
-    $table = "publisher";
+if ($accountType === "publisher") {
+    $table = "Publisher";
     $userField = "publisher_name";
     $passField = "publisher_password";
 } else {
