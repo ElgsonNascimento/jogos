@@ -1,34 +1,42 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>acessar conta</title>
+        <title>Acessar conta</title>
         <link rel="stylesheet" href="css/style.css">
-        <!-- <link rel="stylesheet" href="css/reset.css"> -->
     </head>
     <body>
         <header>
             <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
-            <h1>Nome da loja de jogos</h1></a>
+            <h1>Vapor</h1></a>
             
             <nav>
-                <a href="acessar_conta.html">acessar conta</a>
-                <a href="criar_conta.html">criar conta</a>
+                <a href="acessar_conta.html">Acessar conta</a>
+                <a href="criar_conta.html">Criar conta</a>
             </nav>
         </header>
         <main>
 
-            <h1>acessar conta</h1>
+            <h1>Acessar conta</h1>
             <form id="loginForm">
-                <label for="tipo_conta">Tipo de conta:</label><br>
-                <input type="radio" name="account_type" value="user" checked>Usuário<br>
-                <input type="radio" name="account_type" value="publisher">Publicador<br>        
-                <label for="nome">Nome de usuário:</label><br>
-                <input name="username" type="text" placeholder="Digite seu nome de usuário"><br>
-                <label for="senha">Senha:</label><br>
-                <input name="user_pass" type="password"  placeholder="Digite sua senha"><br>
-                <button class="submit" submit>Enviar</button>
-                <p>esqueci minha senha</p>
-                <a href="criar_conta.html">não possuo conta</a>
+
+                <input name="username" type="text" placeholder="Usuário">
+                <input name="user_pass" type="password"  placeholder="Senha">
+                <br>
+                <label for="tipo_conta">Tipo de conta</label>
+                <div class="radio-group">
+                    <input type="radio" name="account_type" value="user" id="radio_user" checked>
+                    <label for="radio_user" class="radio-tag">Usuário</label>
+                    
+                    <input type="radio" name="account_type" value="publisher" id="radio_publisher">
+                    <label for="radio_publisher" class="radio-tag">Publicador</label>
+                </div>
+                <br>
+                <button class="submit" submit>Login</button>
+
+                <div class="info-box">
+                    <a href="criar_conta.html">Esqueci minha Senha</a>
+                </div>
+
             </form>
             <p id="msg" style="color:red;"></p>
 

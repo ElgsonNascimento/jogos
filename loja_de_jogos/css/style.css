@@ -1,11 +1,16 @@
 header a,
 header h1 {
-    display: inline-block
+    display: inline-block;
+    margin-bottom: 00;
+}
+
+a{
+    text-decoration: none;
 }
 
 header h1,
 header img {
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 *,
@@ -21,9 +26,50 @@ nav {
 
 h1,
 h2 {
-    font-size: 18px;
+    font-size: 32px;
     letter-spacing: 1px;
-    font-weight: 400
+    font-weight: 400;
+}
+
+.jogo-esquerda {
+    align-content: center;
+}
+
+.carrossel {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+}
+
+.carrossel::-webkit-scrollbar{
+    display: none;
+}
+
+.grupos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin 5s infinite linear;
+}
+
+.grupos img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card {
+    flex: 0 0 100%;
+    font-size: 3rem;
+    border-radius: .2em;
+    text-align: center;
+    align-content: center;
+}
+
+@keyframes spin {
+    from{translate: 0;}
+    to{translate: -100%;}
+    
 }
 
 .oferta h4,
@@ -50,14 +96,17 @@ nav a {
 
 * {
     margin: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
+    text-align: center;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: "Motiva Sans", Arial, sans-serif;
     background: linear-gradient(to bottom, #3f4738 0, #4c5844 100%);
     color: #eff6ee;
-    min-height: 100vh
+    min-height: 100vh;
 }
 
 header {
@@ -85,8 +134,9 @@ header h1 {
 .oferta h4,
 h1,
 h2,
+label,
 nav a {
-    color: #eff6ee
+    color:#a8b09e
 }
 
 nav {
@@ -124,17 +174,19 @@ nav a:active {
 main {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 20px
+    padding: 0 20px;
+    flex-grow: 1;
 }
 
 input[type=text] {
     width: 100%;
-    max-width: 600px;
+    max-width: 300px;
     padding: 12px 20px;
     background: #5a6450;
     border: none;
     border-radius: 3px;
     color: #eff6ee;
+    text-align: center;
     font-size: 14px;
     margin-bottom: 30px;
     outline: 0;
@@ -143,16 +195,24 @@ input[type=text] {
 
 input[type="password"] {
     width: 100%;
-    max-width: 600px;
+    max-width: 300px;
     padding: 12px 20px;
     background: #5a6450;
     border: none;
     border-radius: 3px;
     color: #eff6ee;
     font-size: 14px;
+    font-style: italic;
+    text-align: center;
     margin-bottom: 30px;
     outline: 0;
     transition: background .3s
+}
+
+input[type="password"]::placeholder {
+    color: #a8b09e;
+    font-style: italic;
+    text-align: center;
 }
 
 input[type="DATE"] {
@@ -171,7 +231,9 @@ input[type="DATE"] {
 
 
 input[type=text]::placeholder {
-    color: #a8b09e
+    color: #a8b09e;
+    font-style: italic;
+    text-align: center;
 }
 
 input[type=text]:focus {
@@ -179,14 +241,16 @@ input[type=text]:focus {
 }
 
 h1 {
-    margin-bottom: 20px
+    margin-bottom: 10px;
 }
 
 h2 {
-    margin: 40px 0 20px
+    margin: 20px 0 20px
 }
 
+
 footer {
+    min-height: 50px;
     background: #2a2f26;
     padding: 30px 40px;
     margin-top: 60px;
@@ -194,7 +258,7 @@ footer {
     text-align: center;
     color: #c5c9c1;
     font-size: 13px;
-    line-height: 1.8
+    line-height: 1.8;
 }
 
 footer .support-heading {
@@ -210,12 +274,72 @@ footer p {
     margin: 5px 0
 }
 
-.oferta {
+.forgot-password p{
+    color: #a8b09e;
+}
+
+.radio-group {
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Hide native radio buttons */
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+/* Radio tag box styling - unchecked state */
+.radio-tag {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 2px solid #968732;
+  border-radius: 6px;
+  background-color: #3f4738;
+  color:#a8b09e;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* Radio tag box hover state */
+.radio-tag:hover {
+  border-color: #eff6ee;
+  box-shadow: 0 0 8px rgba(150, 135, 50, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Radio tag box checked state */
+.radio-group input[type="radio"]:checked + .radio-tag {
+  background-color: #968732;
+  border-color: #968732;
+  color:#eff6ee;
+  box-shadow: 0 0 12px rgba(150, 135, 50, 0.6);
+}
+
+/* Radio tag box focus state for accessibility */
+.radio-group input[type="radio"]:focus + .radio-tag {
+  outline: 2px solid #968732;
+  outline-offset: 2px;
+}
+
+.oferta, .jogo-esquerda {
     background: linear-gradient(to right, #3f4738 0, #4c5844 100%);
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, .5);
     transition: transform .3s, box-shadow .3s
+}
+
+.comentario {
+    background: linear-gradient(to top, #3f4738 0, #4c5844 100%);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    margin: 10px;
+    padding: 10px;
 }
 
 .oferta:hover {
@@ -246,7 +370,7 @@ button {
     color: #eff6ee;
     border: 1px solid #b09a3c;
     padding: 12px 30px;
-    margin: 0 20px 20px;
+    margin-bottom: 10px;
     border-radius: 3px;
     font-size: 14px;
     font-weight: 700;
@@ -278,14 +402,52 @@ nav a:focus {
     outline-offset: 2px
 }
 
+.carrinho label,
+p {
+    color: #a8b09e;
+    margin: 10px 0px;
+}
+
+.info-box{
+    margin: 20px  0px;
+}
+.info-box a {
+    text-decoration: none;
+    color: #a8b09e;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .3s;
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #4c5844 5%, #3f4738 95%);
+    border: 1px solid #5a6450;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3)
+}
+
+.info-box h1{
+    text-decoration: none;
+    color: #a8b09e;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: .3s;
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #4c5844 5%, #3f4738 95%);
+    border: 1px solid #5a6450;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+}
+
+.pesquisar input[type=text]{
+    max-width: 600px;
+}
+
 .jogo {
     display: inline-block;
-    width: calc(33.333% - 15px);
     background: #3f4738;
     border-radius: 5px;
     overflow: hidden;
-    margin-right: 20px;
-    margin-bottom: 20px;
     vertical-align: top;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
     transition: transform .3s, box-shadow .3s
@@ -313,13 +475,106 @@ nav a:focus {
 }
 
 .jogo p {
-    color: #c5c9c1;
+    color: #a8b09e;
     padding: 0 15px 15px;
     font-size: 13px
 }
 
+.jogo-direita label{
+    color: #eff6ee;
+}
 
- #chat-toggle {
+.jogo-esquerda{
+    margin-bottom: 25px;
+}
+
+.jogo-esquerda h1{
+    margin-top: 10px;
+    color: #c5a945;
+}
+
+.comentario label{
+    color: #eff6ee;
+    margin: auto;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #c5c9c1;
+}
+
+
+
+.container:hover input ~ .checkmark {
+  background-color: #eff6ee;
+}
+
+
+.container input:checked ~ .checkmark {
+  background-color: #c5a945;
+}
+
+
+.checkmark:after {
+  content: "";
+  position: relative;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#desenvolvedor_jogo, #publicador_jogo {
+    color: #b09a3c;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#desenvolvedor_jogo:hover, #publicador_jogo:hover{
+    color: #c5a945;
+}
+
+#chat-toggle {
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -402,4 +657,3 @@ nav a:focus {
 
     #send:hover {
       background: #005fa3;
-    }

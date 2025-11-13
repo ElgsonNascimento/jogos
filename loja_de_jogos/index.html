@@ -10,7 +10,7 @@
 <body>
     <header>
         <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
-            <h1>Nome da loja de jogos</h1>
+            <h1>Vapor</h1>
         </a>
 
         <nav>
@@ -19,18 +19,25 @@
         </nav>
     </header>
     <main>
-        <input type="text" placeholder="pesquisar...">
-        <button>Filtros</button>
-        <h1 id="principal">Página principal</h1>
-        <h2>Principais ofertas:</h2>
+        <div class="info-box">
+            <h1 id="principal">Página principal</h1>
+            <br>
+            <div class="pesquisar">
+                <button>Filtros</button>
+                <input type="text" placeholder="Pesquisar...">
+            </div>
+
+        </div>
+
         <div class="oferta">
+            <h2>Principais ofertas</h2>
             <img src="imgs/jogo1.png" alt="imagem do jogo 1">
             <h4>Little Nightmares 3</h4>
             <p>Little Nightmares III é um jogo de aventura imersivo que acompanha a jornada de Low e Alone,
                 dois melhores amigos em busca de uma saída de Lugar Nenhum.</p>
             <button>Saiba mais</button>
         </div>
-        <h2>Descubra também:</h2>
+        <h2>Descubra também</h2>
         <div class="jogo">
             <img src="imgs/jogo2.png" alt="imagem do jogo 2">
             <h4>Red Dead Redemption 2</h4>
@@ -56,8 +63,8 @@
             <button id="send">➤</button>
         </div>
     </div>
-    
-    <script src="chat.js"></script> 
+
+    <script src="chat.js"></script>
 
     <script>
         const toggleBtn = document.getElementById('chat-toggle');
@@ -67,6 +74,9 @@
             chatbox.style.display = chatbox.style.display === 'flex' ? 'none' : 'flex';
         });
     </script>
+
+
+
     <footer>
         Caso tenha qualquer problema, se dirigir a nossa equipe de suporte:
         +55 41 99999-9999.

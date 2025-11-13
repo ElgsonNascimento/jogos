@@ -7,7 +7,7 @@
     <body>
         <header>
             <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
-            <h1>Nome da loja de jogos</h1></a>
+            <h1>Vapor</h1></a>
             <nav>
                 <a href="acessar_conta.html">acessar conta</a>
                 <a href="criar_conta.html">criar conta</a>
@@ -16,19 +16,22 @@
         
         <main>
             <!-- Adicao dinamica dos jogos jistados no carrinho por metodo Get -->
-            <h1>Meu carrinho:</h1>
+            <h1>Meu carrinho</h1>
             <section id="apresentacao_jogo">
             <!-- Se houver jogo na lista, adicionar estruturas em sequencia: -->
-             <div id="jogo_no_carrinho">
+            <div class="carrinho">
                 <img id="imagen_jogo" alt="imagem do jogo">
                 <h2 id="nome_jogo_carrinho"></h2>
-                <p>valor do jogo:</p>
-                <p id="valor_jogo"></p>
-                <button> ampliar </button>
-                <button> comprar </button>
-             </div>
+                <label id="valor_jogo">Valor do Jogo</label>
+                <p id="valor_jogo">R$20,00</p>
+                <button id="ampliar"> ampliar </button>
+                <button id="comprar"> comprar </button>
+            </div>
             <!-- Se nao, apresetar mensagem: -->
-            <p>Não há jogos no seu carrinho, <a href="index.html">adcionar mais</a></p>
+            <div class="info-box">
+                <a href="index.html"> Não há jogos no seu carrinho, clique para adicionar mais</a>
+            </div>
+            
             </section>
         </main>
 

@@ -1,60 +1,84 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Cadastrar jogo</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <header>
-            <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
-            <h1>Nome da loja de jogos</h1></a>
-            <nav>
-                <a href="acessar_conta.html">acessar conta</a>
-                <a href="criar_conta.html">criar conta</a>
-            </nav>
-        </header>
-        <main>
-            
-            <h1>Cadasatrar novo jogo:</h1>
-            <form id="formulario" method="POST" action="novo_jogo.php">
-                <label for="game_title">Titulo do jogo:</label><br>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cadastrar jogo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
+            <h1>Vapor</h1>
+        </a>
+        <nav>
+            <a href="acessar_conta.html">acessar conta</a>
+            <a href="criar_conta.html">criar conta</a>
+        </nav>
+    </header>
+    <main>
+        <form id="formulario" method="POST" action="novo_jogo.php">
+            <div class="cadastrar-jogo">
+
+                <h1>Cadasatrar novo jogo</h1>
                 <input nome="game_title" type="text" placeholder="Titulo do jogo"><br>
-                <label for="game_genre">Genero:</label><br>
-                <input nome="game_genre" type="checkbox" value="Ação" placeholder="Genero do jogo"> <br>
-                <input nome="game_genre" type="checkbox" value="Aventura" placeholder="Genero do jogo"><br>
-                <input nome="game_genre" type="checkbox" value="RPG" placeholder="Genero do jogo"><br>
-                <input nome="game_genre" type="checkbox" value="FPS" placeholder="Genero do jogo"><br>
-                <input nome="game_genre" type="checkbox" value="casual" placeholder="Genero do jogo"><br>
-                <label for="game_price">Valor:</label><br>
-                <input nome="game_price" type="text" placeholder="00,00 RS"><br>
-                <label for="game_description">Descrição:</label><br>
-                <textarea nome="game_description"><br>
-                <label for="developer_name">nome do desenvolvedor:</label><br>
-                <input name="developer_name" type="text"  placeholder="Nome do desenvolvedor"><br>
+
+                <input nome="game_price" type="text" placeholder="Valor do Jogo Ex. R$0,00"><br>
+
+                <input nome="game_description" type="text" placeholder="Descrição do Jogo"><br>
+
+                <input nome="developer_name" type="text" placeholder="Nome do Desenvolvedor"><br>
+
+                <div class="checkboxes">
+                    <label class="container">Ação
+                        <input type="checkbox" value="Ação">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Aventura
+                        <input type="checkbox" value="Aventura">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">FPS
+                        <input type="checkbox" value="FPS">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Roguelike
+                        <input type="checkbox" value="Roguelike">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Co-op
+                        <input type="checkbox" value="Co-op">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
                 <button type="submit" id="botao">Enviar</button>
                 <p id="mensagem_erro"></p>
-            </form>
+            </div>
 
-        </main>
-        <footer>
-            Caso tenha qualquer problema, se dirigir a nossa equipe de suporte:
-            +55 41 99999-9999.
-            por favor nos avalie 
-        </footer>
+        </form>
 
-        <script>
-            var botao = document.querySelector("#botao")
-		    botao.addEventListener('click', e => {
-				e.preventDefault();
-                    fetch("/novo_jogo.php", {
-                        method: "POST",
-                    })
-                    .then(retorno => retorno.text())
-                    .then((r) => {
+    </main>
+    <footer>
+        Caso tenha qualquer problema, se dirigir a nossa equipe de suporte:
+        +55 41 99999-9999.
+        por favor nos avalie
+    </footer>
+
+    <script>
+        var botao = document.querySelector("#botao")
+        botao.addEventListener('click', e => {
+            e.preventDefault();
+            fetch("/novo_jogo.php", {
+                method: "POST",
+            })
+                .then(retorno => retorno.text())
+                .then((r) => {
                     var feedback = document.querySelector("#mensagem_erro");
                     feedback.textContent = r;
-                });		
-			});
-        </script>
-    </body>
+                });
+        });
+    </script>
+</body>
+
 </html>

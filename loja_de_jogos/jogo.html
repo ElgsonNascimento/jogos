@@ -1,71 +1,118 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title id="nome_jogo"></title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <header>
-            <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
-            <h1>Nome da loja de jogos</h1></a>
-            <nav>
-                <a href="acessar_conta.html">acessar conta</a>
-                <a href="criar_conta.html">criar conta</a>
-            </nav>
-        </header>
 
-        <main>
-            <!-- Criar adicao dinamica dos dados declarados em id por metodo Get -->
-            <h1 id="nome_jogo">nome do jogo</h1>
-            <section id="apresentacao_jogo">
-                <div class="esquerda">
-                    <img id="img_jogo" alt="imagem do jogo">
+<head>
+    <meta charset="utf-8">
+    <title id="nome_jogo"></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
+            <h1>Vapor</h1>
+        </a>
+        <nav>
+            <a href="acessar_conta.html">acessar conta</a>
+            <a href="criar_conta.html">criar conta</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Criar adicao dinamica dos dados declarados em id por metodo Get -->
+
+        <section id="apresentacao_jogo">
+
+            <div class="pagina-jogo">
+
+                <div class="jogo-esquerda">
+
+                    <h1 id="nome_jogo">Red Dead Redemption 2</h1>
+
+                    <div class="carrossel">
+                        <div class="grupos">
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay1.jpg" alt="imagem do jogo 1"></div>
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay2.jpg" alt="imagem do jogo 2"></div>
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay3.jpg" alt="imagem do jogo 3"></div>
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay4.jpg" alt="imagem do jogo 4"></div>
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay5.jpg" alt="imagem do jogo 5"></div>
+                        </div>
+
+                        <div aria-hidden class="grupos">
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay1.jpg" alt="imagem do jogo 1"></div>
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay2.jpg" alt="imagem do jogo 2"></div>
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay3.jpg" alt="imagem do jogo 3"></div>
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay4.jpg" alt="imagem do jogo 4"></div>
+                            <div class="card"><img src="imgs/Red Dead 2/gameplay5.jpg" alt="imagem do jogo 5"></div>
+
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="direita">
-                    <p>Descrição:</p>
-                    <p id="descricao_jogo"></p>
-                    <p>Data do lançamento:</p>
-                    <p id="lancamento_jogo"></p>
-                    <p>Desenvolvedor do jogo:</p>
-                    <p id="desenvolvedor_jogo"></p>
-                    <p> Publicadora:</p>
-                    <p id="publicador_jogo"></p>
-                    <p>Genero do jogo:</p>
-                    <p id="genero_joogo"></p>
-                    <button id="add_jogo_carrinho"> Add ao carrinho </button>
+
+                <div class="jogo-direita">
+                    <label>Descrição</label>
+                    <p id="descricao_jogo">Arthur Morgan e a gangue Van der Linde são forçados a fugir. Com agentes
+                        federais e caçadores de recompensas no seu encalço, a gangue precisa roubar, assaltar e lutar
+                        para sobreviver no impiedoso coração dos Estados Unidos. </p>
+
+                    <label>Data de Lançamento</label>
+                    <p id="lancamento_jogo">05/12/2019</p>
+
+                    <label>Desenvolvedor</label>
+                    <p id="desenvolvedor_jogo">Rockstar Games</p>
+
+                    <label>Publicador</label>
+                    <p id="publicador_jogo">Take-Two Interactive</p>
+
+                    <label>Gênero</label>
+                    <p id="genero_joogo">Aventura, Ação, FPS</p>
+
+                    <button id="add_jogo_carrinho"> Adicionar ao carrinho </button>
                     <button id="comprar_jogo"> Comprar </button>
                 </div>
-            </section>
-            <section>
-                <h2>Comentários</h2>
-                <!-- criar estruturas dinamicamente caso haja comentarios sobre o jogo -->
-                <div>
-                    <p id="nome_usuario"></p>
-                    <p id="conteudo_comentario"></p>
-                    <p id="likes">👍</p>
-                    <p id="deslikes">👎</p>
-                </div>
 
-                <!-- estrutura fixa comentar -->
-                <div>
-                    <p>Ajude interessados a saber mais sobre o jogo contando a sua experiência:</p>
-                    <form action="" method="POST">
-                        <label for="comentario">Comentar sobre o jogo:</label>
-                        <textarea id="comentario"></textarea>
-                        <button type="submit"> Enviar Comentario </button>
-                    </form>
-                </div>
-            </section>
-        </main>
+            </div>
 
-        <footer>
-            Caso tenha qualquer problema, se dirigir a nossa equipe de suporte:
-            +55 41 99999-9999.
-            por favor nos avalie 
-        </footer>
+        </section>
+        <section>
+            <h2>Comentários</h2>
+            <!-- criar estruturas dinamicamente caso haja comentarios sobre o jogo -->
+            <div class="comentario">
+                <label id="nome_usuario">Joaozinho</label>
+                <p id="conteudo_comentario">Gostei bastante, me lembrou a fazenda do meu avo.</p>
+                <p id="likes">👍</p>
+                <p id="deslikes"></p>
+            </div>
 
-        <script>
+            <div class="comentario">
+                <label id="nome_usuario">Fulano de Tal</label>
+                <p id="conteudo_comentario">O Arthur Morgan foi criado a partir de mim.</p>
+                <p id="likes">👍</p>
+                <p id="deslikes"></p>
+            </div>
 
-        </script>
-    </body>
+            <!-- estrutura fixa comentar -->
+            <div>
+                <br>
+                <p>Ajude interessados a saber mais sobre o jogo contando a sua experiência</p>
+                <form action="" method="POST">
+                    <input id="comentario" type="text" placeholder="Deixe seu comentário aqui"><br>
+                    <button type="submit">Comentar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Caso tenha qualquer problema, se dirigir a nossa equipe de suporte:
+        +55 41 99999-9999.
+        por favor nos avalie
+    </footer>
+
+    <script>
+
+    </script>
+</body>
+
 </html>
