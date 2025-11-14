@@ -8,7 +8,7 @@
 
 <body>
     <header>
-        <a href="index.html"><img src="imgs/logo.jpg" alt="Logo">
+        <a href="index.php"><img src="imgs/logo.jpg" alt="Logo">
             <h1>Vapor</h1>
         </a>
         <nav>
@@ -69,7 +69,8 @@
                     <p id="genero_joogo">Aventura, Ação, FPS</p>
 
                     <button id="add_jogo_carrinho"> Adicionar ao carrinho </button>
-                    <button id="comprar_jogo"> Comprar </button>
+                    <button id="comprar_jogo" type="submit"> Comprar </button>
+                    <p id="situacao"></p>
                 </div>
 
             </div>
@@ -111,7 +112,45 @@
     </footer>
 
     <script>
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
 
+        var botao = document.querySelector("#comprar_jogo")
+        botao.addEventListener('click', e => {
+            e.preventDefault();
+            fetch(`/jogo.php/id=${id}`, {
+                method: "POST",
+            })
+                .then(retorno => retorno.json())
+                .then((r) => {
+                    var feedback = document.querySelector("#situacao");
+                    feedback.textContent = r;
+                });
+        });
+        
+        fetch(`jogo.php/id=${id}`)
+            .then(e => json(e))
+            .then( jogos =>{
+                var section = document.getElementById("#pagina_jogo");
+                    
+                var descricao_jogo = document.getElementById("#descricao_jogo");
+                var lancamento_jogo = document.getElementById("#lancamento_jogo");
+                var desenvolvedor_jogo = document.getElementById("#desenvolvedor_jogo");
+                var publicador_jogo = document.getElementById("#publicador_jogo");
+                var genero_joogo = document.getElementById("#genero_joogo");
+                var add_jogo_carrinho = document.getElementById("#add_jogo_carrinho");
+                var comprar_jogo = document.getElementById("#comprar_jogo");
+
+                nome_jogo.textContent();
+                descricao_jogo.textContent();
+                lancamento_jogo.textContent();
+                desenvolvedor_jogo.textContent();
+                publicador_jogo.textContent();
+                genero_joogo.textContent();
+                        
+                }
+            )
     </script>
 </body>
 
