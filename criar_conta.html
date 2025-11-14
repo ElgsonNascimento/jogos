@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>criar conta</title>
+        <link rel="stylesheet" href="css/style.css">
+        <!-- <link rel="stylesheet" href="css/reset.css"> --><!-- <link rel="stylesheet" href="css/reset.css"> -->
+    </head>
+    <body>
+        <header>
+            <a href="index.php"><img src="imgs/logo.jpg" alt="Logo">
+            <h1>Vapor</h1></a>
+            <nav>
+                <a href="acessar_conta.html">acessar conta</a>
+                <a href="criar_conta.html">criar conta</a>
+            </nav>
+        </header>
+        <main>
+            
+            <h1>criar conta</h1>
+            <form id="registerForm">
+                <input name="username" type="text" placeholder="Nome do Usuário" required><br>
+                <input name="nickname" type="text" placeholder="Nome Completo" required><br>
+                <input name="email" type="text" placeholder="Email" required><br>
+                <input name="age" type="DATE" placeholder="Data de Nascimento" required><br>
+                <input name="user_pass" minlength="8" pattern="(?=.*\d)(?=.*[\W_]).{8,}" type="password" placeholder="Criar Senha" required><br>
+                <input name="user_pass2" type="password"  placeholder="Repetir Senha" required><br>
+                
+                <label for="tipo_conta">Tipo de conta</label><br>
+                <div class="radio-group">
+                    <input type="radio" name="tipo_conta" value="usuario" id="radio_user" checked>
+                    <label for="radio_user" class="radio-tag">Usuário</label>
+                    
+                    <input type="radio" name="tipo_conta" value="publicador" id="radio_publisher">
+                    <label for="radio_publisher" class="radio-tag">Publicador</label>
+                </div>
+                <br>
+                <button type="submit">Criar Conta</button>
+
+                <p id="msg" style="color:red;"></p>
+
+                <div class="info-box">
+                    <a href="acessar_conta.html">Já possuo conta</a>
+                </div>
+            </form>
+
+        </main>
+        <footer>
+            Caso tenha qualquer problema, se dirigir a nossa equipe de suporte:
+            +55 41 99999-9999.
+            por favor nos avalie 
+        </footer>
+
+        <script>
+            document.getElementById("registerForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+
+                fetch("criar_conta.php", {
+                method: "POST",
+                body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                const msg = document.getElementById("msg");
+                msg.textContent = data.message;
+                msg.style.color = data.success ? "green" : "red";
+
+                if (data.success) {
+                    sessionStorage.setItem("username", formData.get("username"));
+                    sessionStorage.setItem("loggedIn", "true");
+                    window.location.href = "index.html";
+                }
+                })
+                .catch(error => console.error("Erro:", error));
+            });
+        </script>
+    </body>
+</html>
+
